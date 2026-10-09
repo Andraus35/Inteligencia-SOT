@@ -35,6 +35,10 @@ class HarnessTests(unittest.TestCase):
             "harness/policy.json",
         ):
             shutil.copyfile(REAL_STAGE / name, self.stage / name)
+        for name in {name for role in h.agent_contracts().values() for name in role["documents"]}:
+            target = self.stage / name
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(REAL_STAGE / name, target)
         for name in (*h.PROJECT_DOCUMENTS, "docs/governanca/registro.json"):
             target = self.stage.parent.parent / name
             target.parent.mkdir(parents=True, exist_ok=True)
@@ -176,6 +180,80 @@ class HarnessTests(unittest.TestCase):
         with self.assertRaisesRegex(h.GateError, "não foi vinculada"):
             h.load_run("case")
 
+    def test_changed_role_contract_invalidates_team_run(self):
+        self.freeze()
+        path = self.stage / "specs/AUDITOR.spec.md"
+        path.write_text(path.read_text() + "\nChanged role procedure\n")
+        before = (self.root / "control/manifest.json").read_bytes()
+        with self.assertRaisesRegex(h.GateError, "Contrato de agente mudou"):
+            h.launch_command("case", "tradutor", ["python", "-c", "pass"])
+        self.assertEqual((self.root / "control/manifest.json").read_bytes(), before)
+
+    def test_missing_skill_or_spec_blocks_contract_loading(self):
+        for name in (
+            "specs/TRADUTOR.spec.md",
+            ".agents/skills/translation-auditor/SKILL.md",
+        ):
+            with self.subTest(name=name):
+                path = self.stage / name
+                data = path.read_bytes()
+                path.unlink()
+                with self.assertRaisesRegex(h.GateError, "Contrato de agente ausente"):
+                    h.load_run("case")
+                path.write_bytes(data)
+
+    def test_legacy_agent_contract_is_not_migrated(self):
+        path = self.root / "control/manifest.json"
+        manifest = h.read_json(path)
+        del manifest["agent_contracts_sha256"]
+        h.write_json(path, manifest)
+        before = path.read_bytes()
+        with self.assertRaisesRegex(h.GateError, "não foi vinculado"):
+            h.load_run("case")
+        self.assertEqual(path.read_bytes(), before)
+
+    def test_skill_symlink_or_empty_contract_is_rejected(self):
+        path = self.stage / ".agents/skills/translation-translator/SKILL.md"
+        path.write_text(" \n")
+        with self.assertRaisesRegex(h.GateError, "Contrato de agente vazio"):
+            h.agent_contracts()
+        path.unlink()
+        path.symlink_to(REAL_STAGE / ".agents/skills/translation-translator/SKILL.md")
+        with self.assertRaisesRegex(h.GateError, "Link simbólico"):
+            h.agent_contracts()
+
+    def test_each_role_receives_its_own_contract(self):
+        for role in h.ROLES:
+            with self.subTest(role=role):
+                manifest_path = self.root / "control/manifest.json"
+                manifest = h.read_json(manifest_path)
+                if role == "tradutor":
+                    self.freeze()
+                elif role == "auditor":
+                    self.prepare_from_frozen_plan()
+                h.launch_command("case", role, ["python", "-c", "pass"])
+                context = h.read_json(self.stage / f"work/case/{role}/context.json")
+                contract = context["agent_contract"]
+                self.assertEqual(contract, h.agent_contracts()[role])
+                self.assertEqual(
+                    h.object_hash(h.agent_contracts()),
+                    manifest["agent_contracts_sha256"],
+                )
+                self.assertEqual(len(contract["documents"]), 4)
+                self.assertIn(f"specs/{h.ROLE_SPECS[role]}", contract["documents"])
+                for name, content in contract["documents"].items():
+                    self.assertEqual(
+                        hashlib.sha256(content.encode()).hexdigest(),
+                        contract["verified_sha256"][name],
+                    )
+
+    def prepare_from_frozen_plan(self):
+        h.write_json(h.translation_path(self.root, "pilot"), self.translated)
+        (h.translation_path(self.root, "pilot").parent / "translated.pdf").write_bytes(
+            b"%PDF-1.7\nsynthetic translated fixture\n"
+        )
+        h.mark_translated("case", "pilot")
+
     def prepare(self, batch="pilot", blocks=None):
         if batch == "pilot":
             self.freeze()
@@ -258,9 +336,13 @@ class HarnessTests(unittest.TestCase):
             h.load_run("case")
 
     def test_incomplete_plan_rejected(self):
-        self.plan["glossary_approved_by"] = ""
-        with self.assertRaises(h.GateError):
-            self.freeze()
+        original = copy.deepcopy(self.plan)
+        for change in ({"glossary_approved_by": ""}, {"pilot_block_ids": ["b9"]}):
+            with self.subTest(change=change):
+                self.plan = copy.deepcopy(original)
+                self.plan.update(change)
+                with self.assertRaises(h.GateError):
+                    self.freeze()
 
     def test_unknown_or_duplicate_blocks_rejected(self):
         self.prepare()
@@ -321,10 +403,14 @@ class HarnessTests(unittest.TestCase):
 
     def test_semantic_check_false_blocks(self):
         self.prepare()
-        review = self.review()
-        review["checks"]["conditions"] = False
-        h.write_json(self.root / "auditor/pilot/review.json", review)
-        self.assertFalse(h.evaluate("case", "pilot")["passed"])
+        original_manifest = h.read_json(self.root / "control/manifest.json")
+        for check in ("conditions", "layout"):
+            with self.subTest(check=check):
+                h.write_json(self.root / "control/manifest.json", original_manifest)
+                review = self.review()
+                review["checks"][check] = False
+                h.write_json(self.root / "auditor/pilot/review.json", review)
+                self.assertFalse(h.evaluate("case", "pilot")["passed"])
 
     def test_critical_findings_block_and_cannot_be_waived(self):
         self.prepare()
@@ -512,6 +598,12 @@ gov = ctx["project_governance"]
 assert gov["policy_version"] == "1.0.0"
 for name, text in gov["documents"].items():
     assert hashlib.sha256(text.encode()).hexdigest() == gov["verified_sha256"][name]
+contract = ctx["agent_contract"]
+assert contract["role"] == "tradutor"
+assert len(contract["documents"]) == 4
+assert "specs/TRADUTOR.spec.md" in contract["documents"]
+for name, text in contract["documents"].items():
+    assert hashlib.sha256(text.encode()).hexdigest() == contract["verified_sha256"][name]
 assert not any(k in os.environ for k in ["GH_TOKEN", "GITHUB_TOKEN", "SOT_AUDITOR_TOKEN"])
 pathlib.Path("/stage/runs/case/tradutor/allowed.json").write_text("ok")
 try:

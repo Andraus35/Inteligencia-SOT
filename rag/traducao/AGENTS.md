@@ -7,6 +7,9 @@ Escopo exclusivo: esta pasta e seus descendentes. Não aplicar estas instruçõe
 Antes de trabalhar nesta etapa, ler a entrada geral, política 1.0.0 e matriz de leitura do Inteligência SOT, depois este arquivo, `MASTER-AGENTES.md`, `MASTER-PROJETO-TRADUCAO.md` e `README-HARNESS.md`. Nos jobs, os documentos gerais vêm no snapshot `project_governance` de `TRANSLATION_CONTEXT`, sem acesso à raiz. Confirmar `stage=traducao`, papel e ID de execução. O launcher só aceita esta raiz e os três papéis abaixo. Não registrar esta governança em configurações globais.
 
 Procedimento específico: [.agents/skills/translation-quality/SKILL.md](.agents/skills/translation-quality/SKILL.md).
+Ler também `specs/COMUM.md`, a spec e a skill do papel indicadas em
+[specs/README.md](specs/README.md); no job, constam em `agent_contract` de
+`TRANSLATION_CONTEXT`. As versões ficam vinculadas à execução por hash.
 
 ## Papéis e autoridade
 

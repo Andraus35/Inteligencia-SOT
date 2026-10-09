@@ -8,6 +8,10 @@ O host confere os documentos gerais em `docs/governanca/registro.json` contra a 
 
 ## Capacidades implementadas
 
+- Specs/skills por papel em `specs/` e `.agents/skills/`: contexto `agent_contract`
+  readonly com contrato comum, spec, skill comum e skill do papel. Manifesto
+  vincula o conjunto dos três contratos; ausência, vazio, symlink ou alteração
+  bloqueiam a operação. Legado sem vínculo exige nova execução, sem migração.
 - Validação de caminhos relativos, traversal e links simbólicos; escrita atômica de JSON.
 - Hash do PDF original, da política, do plano congelado e do conjunto de artefatos de cada lote. Mudanças invalidam a revisão anterior.
 - Inventário original congelado pelo coordenador; cobertura e IDs, páginas e tipos de bloco conferidos contra esse inventário.
@@ -128,7 +132,12 @@ Os resultados ficam nesta etapa, nunca na raiz do projeto/SOT. Se forem autoriza
 
 Fonte: [paladini/harness-score](https://github.com/paladini/harness-score), ligado à comunidade Tech Leads Club. A skill upstream se chama `harness-engineering`, não `harness-score`; está em `harness/vendor/harness-engineering/`. Referência fixada no commit `90f67d40d56cfe8bd11112e76f48880752f196d1`. CLI npm `harness-score@1.8.1`, sem dependências runtime, fixada por integridade SHA-512 e hashes individuais em `provenance.json`.
 
-O scanner recebe apenas esta pasta e não faz chamadas LLM. Mede presença/estrutura de infraestrutura; não testa verdade das regras ou fidelidade do PDF. Não criar regras globais ou CI fora desta etapa para aumentar pontuação. CI automático GitHub não foi criado: workflows são descobertos na raiz `.github/workflows/`, incompatível com a restrição atual de manter todos os mecanismos dentro da etapa. As verificações são executáveis manualmente e podem ser conectadas por uma futura autorização explícita de dispatcher.
+O comando local recebe apenas esta pasta e não faz chamadas LLM. Mede estrutura,
+não fidelidade do PDF. Por DEC-HARNESS-002, a raiz dispõe de workflow CI, sensores
+e gate L4 oficial: executar `make check` na raiz e consultar
+`docs/HARNESS-QUALIDADE.md` no host. Os jobs mantêm permissões restritas à etapa;
+Score da raiz e Score local têm escopos diferentes. Execução remota de CI exige
+evidência própria; presença do workflow não comprova execução.
 
 ## Prevenção e correção de regressões
 

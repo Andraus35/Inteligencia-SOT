@@ -47,6 +47,28 @@
   publicação do ambiente cloud ou liberação de corpus. A regra de aprovação humana
   de mudanças de política continua vigente.
 
+## DEC-SPEC-004 — agentes, skills, benchmark e continuidade
+
+- Data: 2026-10-09. Autoridade: usuário. Estado: AUTORIZADA para elaboração
+  e integração operacional; não homologa ferramenta, tradução ou corpus.
+- Evidência: “use a metodologia e as skills de especificação utilizadas no projeto
+  SOT ENGINER. USE AGENTES PARALELOS PARA AGILIZAR”; escopo respondido:
+  “ESPECIFICAÇÃO DOS AGENTES DE TRADUÇÃO E SUAS SKILLS DE USO”.
+- Complementos: usar `atomic-spec.md` como referência; elaborar `ROADMAP.md`
+  sequencial e `CATÁLOGO.md` com timeline/entregas/contexto de novas sessões;
+  incluir LangGraph e LangChain no benchmark, escolhendo durante a especificação.
+- Fase atual: somente tradução, buscando desempenho probabilístico e
+  determinístico dos agentes/skills/frameworks; elaboração efetiva RAG depois.
+- Escopo: método adaptado, specs dos três papéis, skills de uso, contexto/hash
+  do harness, testes proporcionais, roadmap/handoff, protocolo comparativo e
+  leitura/verificação independente em paralelo, respeitando máximo três ativos.
+- IG-01..IG-10 permanece versão 1.0.0; não importa autoridade/aprovações do ZIP,
+  regras de trading ou novas permissões. Sem instalação/execução de frameworks,
+  PDF real, modelo, corpus ou transmissão por inferência.
+- Propagar leitura operacional e hashes dos documentos gerais alterados;
+  novas execuções vinculam specs/skills. Históricos/manifestos antigos não são
+  migrados, sobrescritos ou apagados. Publicação técnica segue DEC-ENVIO-003.
+
 ## Registro e propagação
 
 `registro.json` identifica versão, decisão e hashes dos documentos gerais carregados

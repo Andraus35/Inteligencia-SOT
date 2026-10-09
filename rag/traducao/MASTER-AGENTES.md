@@ -24,6 +24,11 @@ Os agentes não podem ampliar permissões, instalar ferramentas, publicar docume
 
 ## Procedimentos por agente
 
+Detalhamento BASpec/D0–D9 e skills de uso em [specs/README.md](specs/README.md),
+com contrato comum e leitura por papel. Os mecanismos e tarefas ficam em
+`specs/PLAN.md` e `specs/TASKS.md`; tradução/modelos/frameworks ainda dependem
+do piloto e benchmark. Essas specs não substituem as regras deste master.
+
 ### 1. Coordenador
 
 1. Registrar ausência ou disponibilidade do PDF e idiomas; não preencher lacunas por suposição.

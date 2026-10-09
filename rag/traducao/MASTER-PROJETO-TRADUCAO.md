@@ -42,6 +42,8 @@ Produzir PDF monolíngue para leitura e conteúdo estruturado alinhado. PDF bil�
 
 BabelDOC é candidato inicial para tradução com preservação de layout; Docling para extração estruturada. MinerU ou outros parsers podem entrar no piloto se necessário. Nenhum vencedor está previamente determinado: qualidade, privacidade, custo, capacidade de CPU/GPU, licença e compatibilidade com o PDF real devem orientar a seleção.
 
+LangGraph e LangChain foram incluídos como candidatos no [benchmark de frameworks](BENCHMARK-E-SELECAO.md#benchmark-dos-frameworks-langgraph-e-langchain), comparados ao fluxo Python explícito. A escolha ocorrerá durante a especificação, conforme contratos e resultados, sem vencedor antecipado. Avaliar estados, checkpoints/retomada, idempotência, aprovações, rastreabilidade e custo mantendo motores e gates iguais. Sua inclusão no protocolo não instala o framework, executa RAG ou altera os limites desta etapa.
+
 ## Etapas e entregas
 
 1. **Preparação:** inventário, hash, versões, plano, par de idiomas, glossário proposto e decisão de privacidade. Sem glossário aprovado não iniciar tradução.

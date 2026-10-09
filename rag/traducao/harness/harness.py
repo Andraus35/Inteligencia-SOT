@@ -24,6 +24,16 @@ STAGE = Path(__file__).resolve().parent.parent
 ID = re.compile(r"[a-zA-Z0-9][a-zA-Z0-9_-]{0,63}\Z")
 NUMBERS = re.compile(r"[+−-]?\d+(?:[.,:/]\d+)*(?:%|‰)?")
 ROLES = ("coordenador", "tradutor", "auditor")
+ROLE_SPECS = {
+    "coordenador": "COORDENADOR.spec.md",
+    "tradutor": "TRADUTOR.spec.md",
+    "auditor": "AUDITOR.spec.md",
+}
+ROLE_SKILLS = {
+    "coordenador": "translation-coordinator",
+    "tradutor": "translation-translator",
+    "auditor": "translation-auditor",
+}
 PROJECT_DOCUMENTS = (
     "AGENTS.md",
     "docs/governanca/POLITICA.md",
@@ -190,6 +200,29 @@ def run_root(run_id):
     return inside(Path("runs") / run_id)
 
 
+def agent_contracts():
+    """Read role procedures as data; their hashes bind a run, not human approval."""
+    contracts = {}
+    for role in ROLES:
+        names = (
+            "specs/COMUM.md",
+            f"specs/{ROLE_SPECS[role]}",
+            ".agents/skills/translation-quality/SKILL.md",
+            f".agents/skills/{ROLE_SKILLS[role]}/SKILL.md",
+        )
+        documents = {}
+        hashes = {}
+        for name in names:
+            path = inside(name)
+            require(path.is_file(), f"Contrato de agente ausente: {name}")
+            data = path.read_bytes()
+            require(bool(data.strip()), f"Contrato de agente vazio: {name}")
+            documents[name] = data.decode("utf-8")
+            hashes[name] = hashlib.sha256(data).hexdigest()
+        contracts[role] = {"role": role, "documents": documents, "verified_sha256": hashes}
+    return contracts
+
+
 @contextmanager
 def execution_lock(run_id, shared=False):
     run_root(run_id)
@@ -225,6 +258,10 @@ def load_run(run_id):
         value.get("project_governance_sha256") == object_hash(project_governance()),
         "Governança geral mudou ou não foi vinculada; requer nova execução",
     )
+    require(
+        value.get("agent_contracts_sha256") == object_hash(agent_contracts()),
+        "Contrato de agente mudou ou não foi vinculado; requer nova execução",
+    )
     source = inside(value["source_path"])
     require(source.is_relative_to(STAGE / "input"), "Fonte fora de input")
     require(digest(source) == value["source_sha256"], "PDF fonte foi alterado")
@@ -242,6 +279,7 @@ def save_run(root, value, action):
 def init_run(run_id, source_relative, source_language, target_language):
     cfg = policy()
     governance = project_governance()
+    contracts = agent_contracts()
     require(source_language.strip() and target_language.strip(), "Idiomas obrigatórios")
     require(source_language != target_language, "Origem e destino devem diferir")
     source = inside(source_relative)
@@ -267,6 +305,7 @@ def init_run(run_id, source_relative, source_language, target_language):
         "policy_sha256": digest(STAGE / "harness/policy.json"),
         "state": "CREATED",
         "project_governance_sha256": object_hash(governance),
+        "agent_contracts_sha256": object_hash(contracts),
         "corrections": {"pilot": 0, "full": 0},
         "accepted": {},
         "events": [],
@@ -706,11 +745,17 @@ def launch_command(run_id, role, command):
     workspace = inside(Path("work") / run_id / role)
     for part in ("tmp", "cache"):
         (workspace / part).mkdir(parents=True, exist_ok=True)
+    contracts = agent_contracts()
+    require(
+        object_hash(contracts) == manifest["agent_contracts_sha256"],
+        "Contrato de agente mudou durante preparação do contexto",
+    )
     context = {
         "stage": "traducao",
         "role": role,
         "run_id": run_id,
         "source_sha256": manifest["source_sha256"],
+        "agent_contract": contracts[role],
         "instructions": (STAGE / "AGENTS.md").read_text(),
         "project_governance": project_governance(),
         "manual": (STAGE / "README-HARNESS.md").read_text(),
@@ -722,6 +767,10 @@ def launch_command(run_id, role, command):
     require(
         object_hash(context["project_governance"]) == manifest["project_governance_sha256"],
         "Governança geral mudou durante preparação do contexto",
+    )
+    require(
+        object_hash(agent_contracts()) == manifest["agent_contracts_sha256"],
+        "Contrato de agente mudou durante preparação do contexto",
     )
     write_json(workspace / "context.json", context)
     base, env = docker_base()
@@ -854,6 +903,7 @@ def selfcheck():
     policy()
     vendor_check()
     governance = project_governance()
+    contracts = agent_contracts()
     required = [
         "AGENTS.md",
         "MASTER-AGENTES.md",
@@ -871,6 +921,7 @@ def selfcheck():
         "stage": "traducao",
         "status": "PASS",
         "project_policy_version": governance["policy_version"],
+        "agent_contracts_sha256": object_hash(contracts),
         "limits": "Escopo de arquivo + integridade; sandbox exige doctor e testes reais.",
     }
 
