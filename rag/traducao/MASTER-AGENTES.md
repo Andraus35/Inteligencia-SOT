@@ -18,7 +18,7 @@ Cada arquivo de trabalho tem um único responsável por escrita. O auditor não 
 
 Todos os agentes recebem o mesmo hash do original, versões de política e glossário, par de idiomas, seções atribuídas, critérios de aceitação e identificador de execução. O original permanece somente leitura. Não consultar, importar ou alterar a governança do repositório do SOT. Não executar RAG, embeddings, LangChain ou LangGraph nesta etapa.
 
-O ponto de entrada de governança é o `AGENTS.md` desta pasta. Sua aplicação é limitada aos descendentes desta pasta; nenhum arquivo ancestral deve estender estas regras a outras etapas. A descoberta automática depende do executor: o launcher deve iniciar aqui e carregar explicitamente este arquivo. Esta especificação, sozinha, não impede outros programas de lerem o arquivo.
+A entrada geral do Inteligência SOT referencia política 1.0.0 e leitura por tarefa/papel; o `AGENTS.md` desta pasta especializa a tradução. Sua aplicação é limitada aos descendentes desta pasta; nenhum arquivo ancestral deve estender as regras de tradução a outras etapas. O launcher carrega snapshot geral verificado por hash e a governança local, iniciando aqui e sem montar a raiz. Esta especificação, sozinha, não impede outros programas de lerem os arquivos.
 
 Os agentes não podem ampliar permissões, instalar ferramentas, publicar documentos ou enviar conteúdo para um provedor remoto por inferência. Serviços remotos para o conteúdo do PDF dependem de escolha explícita do usuário, registrada com provedor e escopo. A autorização para criar repositório privado não autoriza enviar PDFs ou traduções a serviços de tradução.
 

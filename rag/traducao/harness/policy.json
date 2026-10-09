@@ -2,6 +2,7 @@
   "schema_version": 1,
   "project": "Inteligência SOT",
   "stage": "traducao",
+  "project_governance_version": "1.0.0",
   "roles": ["coordenador", "tradutor", "auditor"],
   "max_agents": 3,
   "max_correction_rounds": 2,

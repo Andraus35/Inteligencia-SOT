@@ -1,0 +1,44 @@
+[project]
+name = "inteligencia-sot-harness"
+version = "0.1.0"
+description = "Controles e sensores de desenvolvimento do Inteligência SOT"
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+dev = [
+  "pytest==9.0.2",
+  "ruff==0.14.10",
+  "mypy==1.19.0",
+  "pre-commit==4.5.1",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "rag/traducao/harness/tests"]
+norecursedirs = ["vendor", "runs", "input", ".harness-eval", ".venv"]
+addopts = "-ra"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+extend-exclude = ["rag/traducao/harness/vendor", "rag/traducao/runs", "rag/traducao/input"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+
+[tool.mypy]
+python_version = "3.12"
+files = ["scripts", ".claude/hooks", "rag/traducao/harness/harness.py"]
+check_untyped_defs = true
+warn_unused_ignores = true
+show_error_codes = true
+exclude = ["rag/traducao/harness/vendor"]
+
+[[tool.mypy.overrides]]
+module = ["guard_tools", "feedback", "harness_score"]
+disallow_untyped_defs = true
+disallow_untyped_calls = true
+warn_return_any = true

@@ -14,7 +14,9 @@ Incluído após os insumos e decisões necessários: inventário, extração, OC
 
 Todas as escritas desta etapa, incluindo caches, logs e temporários configuráveis, devem ficar sob `rag/traducao/`. O harness deve rejeitar caminhos que escapem dessa raiz, inclusive por links simbólicos. Ferramentas que não possam respeitar esse confinamento não são executadas até ajuste. Essa obrigação precisa de verificação técnica; documentação ou validação de caminhos isolada não equivale a sandbox de processos arbitrários.
 
-`AGENTS.md` fica apenas nesta pasta e governa seus descendentes. Não criar instruções de tradução na raiz ou em `rag/`. O executor deve carregar explicitamente a governança da etapa e iniciar nela; o comportamento de descoberta de cada ferramenta precisa ser testado. Não existe garantia de que outro leitor não consulte o arquivo.
+O `AGENTS.md` desta pasta governa seus descendentes; a entrada da raiz é geral e aprovada por DEC-GOV-001 (política 1.0.0). Não promover instruções de tradução para a raiz ou para `rag/`. O executor verifica os documentos gerais e transporta um snapshot no contexto, sem montar a raiz; carrega a governança da etapa e inicia nela. A leitura declarada não comprova isolamento ou compreensão.
+
+A revisão/aprovação da tradução e a liberação ao corpus têm decisões separadas. A liberação depende de aprovação do usuário por documento/lote após testes e revisão, vinculada ao material; o harness de tradução não implementa a ingestão RAG.
 
 ## Insumos e decisões antes do piloto
 

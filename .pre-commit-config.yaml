@@ -1,0 +1,27 @@
+repos:
+  - repo: local
+    hooks:
+      - id: ruff-check
+        name: Ruff lint (locked)
+        entry: env UV_CACHE_DIR=.cache/uv uv run --frozen --offline ruff check
+        language: system
+        types: [python]
+        exclude: ^rag/traducao/(harness/vendor|runs|input)/
+      - id: ruff-format-check
+        name: Ruff format check (locked)
+        entry: env UV_CACHE_DIR=.cache/uv uv run --frozen --offline ruff format --check
+        language: system
+        types: [python]
+        exclude: ^rag/traducao/(harness/vendor|runs|input)/
+      - id: governance
+        name: Governança e integridade
+        entry: python3 -B rag/traducao/harness/harness.py selfcheck
+        language: system
+        pass_filenames: false
+        always_run: true
+      - id: score-l4
+        name: Paladini Harness Score L4
+        entry: python3 -B scripts/harness_score.py --min-level 4
+        language: system
+        pass_filenames: false
+        always_run: true

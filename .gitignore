@@ -1,4 +1,5 @@
 # Dados documentais, temporários e relatórios de execução são locais.
+.harness-eval/
 rag/traducao/input/*
 !rag/traducao/input/.gitkeep
 rag/traducao/runs/*
@@ -13,3 +14,8 @@ rag/traducao/.harness-eval/
 !.env.example
 *.pem
 *.key
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "policy_version": "1.0.0",
+  "status": "APROVADA",
+  "approval_id": "DEC-GOV-001",
+  "documents": {
+    "AGENTS.md": "d243729c09dda77cd349dd1fe4972c4383d9ef7aa2b6948e5bb04abb290daf63",
+    "docs/governanca/POLITICA.md": "b1633539ba59b4afe8ee6475d9f25e404fb4a45f8215c8e1c1927cb5ca3e45f9",
+    "docs/governanca/LEITURA-AGENTES.md": "2e4212ae43f557ea9a853064d96efef548bf68d6832c27c3d9901f112a87f3f8",
+    "docs/governanca/CONTRATOS.md": "aeefc396f003bd79ea230f7434dc88002582d90232e84db077376ae7fa30c413",
+    "docs/governanca/DECISOES.md": "ee80fa1cb71199db5c96610c603e922dc7520319a6f32b052194b13f878b1945"
+  }
+}

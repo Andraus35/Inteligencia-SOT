@@ -1,6 +1,10 @@
 # Operação do harness exclusivo da tradução
 
-Este workspace está em `rag/traducao/`, separado do repositório SOT. Todos os comandos abaixo são executados a partir desta pasta. O único arquivo de descoberta de instruções é `AGENTS.md` aqui; não há cópia na raiz, em `rag/` ou em diretório global de agente. O loader gera `work/<run-id>/<papel>/context.json` com a etapa, papel, hash e instruções. A presença de um Markdown não impede leitores genéricos de abri-lo fora da etapa: o isolamento aplicado é ao processo iniciado pelo launcher.
+Este workspace está em `rag/traducao/`, separado do repositório SOT. Todos os comandos abaixo são executados a partir desta pasta. O `AGENTS.md` da raiz é a entrada geral, registrada por DEC-GOV-001; o daqui especializa a tradução. Não há instruções intermediárias em `rag/` ou registro global. O loader gera `work/<run-id>/<papel>/context.json` com etapa, papel, hashes, instruções, masters, manual e snapshot geral. A presença de um Markdown não impede leitores genéricos de abri-lo: o isolamento aplicado é ao processo iniciado pelo launcher.
+
+O host confere os documentos gerais em `docs/governanca/registro.json` contra a versão esperada em `harness/policy.json`; ausência, link simbólico, hash ou versão divergente bloqueiam a operação. A entrada geral precisa ter o marcador de escopo de projeto; copiar a governança de tradução para a raiz não é aceito. O registro é mantido pelo coordenador conforme aprovação real, sem assinatura criptográfica de autoridade. O snapshot transporta entrada geral, política, matriz e decisões; seus hashes e o dos contratos são vinculados ao manifesto. Mudança exige nova execução; registros antigos sem vínculo não são migrados nem apagados.
+
+`/scratch/context.json` é montado somente leitura sobre o scratch do papel. Não há montagem da raiz, do SOT ou dos documentos gerais do host. No job, leia a governança geral em `project_governance.documents` no contexto, em vez de tentar abrir caminhos da raiz. Isso não prova leitura ou entendimento pelo agente. A revisão da tradução e a aprovação de inclusão no corpus são decisões separadas; o estado técnico `DELIVERED` não libera RAG.
 
 ## Capacidades implementadas
 

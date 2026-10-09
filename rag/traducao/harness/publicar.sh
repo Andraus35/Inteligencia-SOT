@@ -8,7 +8,8 @@ git_root=$(git rev-parse --show-toplevel)
 [[ "$git_root" == "$project_dir" && "$(basename -- "$project_dir")" == Inteligencia-SOT ]] || {
   echo 'Projeto de publicação inválido' >&2; exit 1;
 }
-[[ -f rag/traducao/harness/policy.json && ! -f AGENTS.md ]] || exit 1
+[[ -f rag/traducao/harness/policy.json && -f AGENTS.md ]] || exit 1
+python3 -B rag/traducao/harness/harness.py selfcheck
 [[ "$(git branch --show-current)" == main ]] || { echo 'Branch deve ser main' >&2; exit 1; }
 [[ -z "$(git status --porcelain)" ]] || { echo 'Commitar alterações antes de publicar' >&2; exit 1; }
 visibility=$(gh repo view Andraus35/Inteligencia-SOT --json isPrivate --jq .isPrivate)

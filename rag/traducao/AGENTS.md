@@ -4,7 +4,7 @@ Escopo exclusivo: esta pasta e seus descendentes. Não aplicar estas instruçõe
 
 ## Entrada obrigatória
 
-Antes de trabalhar nesta etapa, ler este arquivo, `MASTER-AGENTES.md`, `MASTER-PROJETO-TRADUCAO.md` e `README-HARNESS.md`. Confirmar `stage=traducao`, papel e ID de execução. O launcher só aceita esta raiz e os três papéis abaixo. Não registrar esta governança em configurações globais.
+Antes de trabalhar nesta etapa, ler a entrada geral, política 1.0.0 e matriz de leitura do Inteligência SOT, depois este arquivo, `MASTER-AGENTES.md`, `MASTER-PROJETO-TRADUCAO.md` e `README-HARNESS.md`. Nos jobs, os documentos gerais vêm no snapshot `project_governance` de `TRANSLATION_CONTEXT`, sem acesso à raiz. Confirmar `stage=traducao`, papel e ID de execução. O launcher só aceita esta raiz e os três papéis abaixo. Não registrar esta governança em configurações globais.
 
 Procedimento específico: [.agents/skills/translation-quality/SKILL.md](.agents/skills/translation-quality/SKILL.md).
 
@@ -22,7 +22,7 @@ Não iniciar sem PDF, idiomas e plano completo. Original é fonte; tradução é
 
 Preservar valores, sinais, unidades, operadores, fórmulas, código, tabelas, condições e exceções. A versão inicial do gate exige números e fórmulas exatamente preservados; normalização linguística de valores exige futura mudança explícita da política. Glossário aprovado é obrigatório. Marcar ambiguidades e solicitar decisão quando afetarem significado.
 
-O auditor compara fonte e tradução antes de consultar justificativas do tradutor. Todo achado exige localização e evidência. Zero críticos/maiores abertos para aprovação. Até duas correções por lote; persistindo erro, bloquear e encaminhar. Nota de qualidade ou pontuação do harness não dispensa esses requisitos.
+O auditor compara fonte e tradução antes de consultar justificativas do tradutor. Todo achado exige localização e evidência. Zero críticos/maiores abertos para aprovação. Até duas correções por lote; persistindo erro, bloquear e encaminhar. Nota de qualidade ou pontuação do harness não dispensa esses requisitos. Revisão da tradução e liberação ao corpus RAG são decisões separadas; `DELIVERED` não é autorização de inclusão.
 
 ## Limites operacionais
 
