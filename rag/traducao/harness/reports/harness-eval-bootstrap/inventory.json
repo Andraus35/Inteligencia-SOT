@@ -1,0 +1,22 @@
+{
+  "root": "/workspace/Inteligencia-SOT/rag/traducao",
+  "generated_at": "2026-10-09T03:55:31.589435+00:00",
+  "t0": [
+    "AGENTS.md"
+  ],
+  "t1": [
+    ".agents/skills/translation-quality/SKILL.md"
+  ],
+  "t2": [],
+  "manifests": [],
+  "manifest_commands": [],
+  "doc_scope": {
+    "included_optional_docs": [],
+    "included_doc_types": [],
+    "excluded_decision_record_count": 0,
+    "optional_type_count": {
+      "MASTER-AGENTES.md": 1,
+      "MASTER-PROJETO-TRADUCAO.md": 1
+    }
+  }
+}
