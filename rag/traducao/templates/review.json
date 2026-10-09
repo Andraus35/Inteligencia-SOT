@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "role": "auditor",
+  "reviewer": "",
+  "batch": "pilot",
+  "bundle_sha256": "",
+  "reviewed_block_ids": [],
+  "checks": {
+    "coverage": false,
+    "meaning": false,
+    "terminology": false,
+    "numbers": false,
+    "conditions": false,
+    "tables": false,
+    "formulas": false,
+    "layout": false,
+    "source_locators": false
+  },
+  "findings": [],
+  "limitations": "Preencher com o escopo realmente revisado. Parecer LLM não equivale a certificação humana."
+}
