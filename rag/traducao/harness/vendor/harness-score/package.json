@@ -1,0 +1,61 @@
+{
+  "name": "harness-score",
+  "version": "1.8.1",
+  "description": "Deterministic AI coding harness-maturity scanner for AI-assisted repositories (Cursor-flagship, expanding to other AI-first dev tools). Zero LLM calls, zero network, zero runtime dependencies.",
+  "type": "module",
+  "bin": {
+    "harness-score": "dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "typecheck:consumer": "tsc -p test/types/tsconfig.json",
+    "check:types": "attw --pack . --profile esm-only",
+    "test": "npm run build && npm run typecheck && npm run typecheck:consumer && vitest run",
+    "test:coverage": "npm run build && npm run typecheck && vitest run --coverage",
+    "bench": "npm run build && node bench/scan.bench.mjs",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "cursor",
+    "harness-engineering",
+    "ai-assisted-development",
+    "agents",
+    "guardrails",
+    "maturity-model",
+    "static-analysis",
+    "cli"
+  ],
+  "author": "Fernando Paladini",
+  "license": "MIT",
+  "homepage": "https://paladini.github.io/harness-score/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paladini/harness-score.git",
+    "directory": "packages/cli"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.5",
+    "@types/node": "^26.1.1",
+    "@vitest/coverage-v8": "^3.0.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.6.0",
+    "vitest": "^3.0.0"
+  }
+}
