@@ -1,0 +1,15 @@
+# Dados documentais, temporários e relatórios de execução são locais.
+rag/traducao/input/*
+!rag/traducao/input/.gitkeep
+rag/traducao/runs/*
+!rag/traducao/runs/.gitkeep
+rag/traducao/work/
+rag/traducao/.harness-eval/
+**/__pycache__/
+*.pyc
+*.log
+.env
+.env.*
+!.env.example
+*.pem
+*.key
