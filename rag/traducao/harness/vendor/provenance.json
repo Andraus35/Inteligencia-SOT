@@ -1,0 +1,217 @@
+[
+  {
+    "path": "harness-eval/SKILL.md",
+    "repository": "tech-leads-club/agent-skills",
+    "commit": "6df68d52028b9261058231e0f4998048c0352f45",
+    "upstream_path": "packages/skills-catalog/skills/(development)/harness-eval/SKILL.md",
+    "sha256": "a245e8ca2a6c42aad8912b633f7956221ec8fb0501dec03e493fd3ad279e4499"
+  },
+  {
+    "path": "harness-eval/references/GLOSSARY.md",
+    "repository": "tech-leads-club/agent-skills",
+    "commit": "6df68d52028b9261058231e0f4998048c0352f45",
+    "upstream_path": "packages/skills-catalog/skills/(development)/harness-eval/references/GLOSSARY.md",
+    "sha256": "708d992e826d5535eeee8c9ebe6d1b14033c8d79943af9a31e37ea04f7b73103"
+  },
+  {
+    "path": "harness-eval/references/PROTOCOL.md",
+    "repository": "tech-leads-club/agent-skills",
+    "commit": "6df68d52028b9261058231e0f4998048c0352f45",
+    "upstream_path": "packages/skills-catalog/skills/(development)/harness-eval/references/PROTOCOL.md",
+    "sha256": "4f4ab3c96c63a769ed0bcfd5fc889cc236d566e793f577232b97837ca2c4632a"
+  },
+  {
+    "path": "harness-eval/references/claims.schema.json",
+    "repository": "tech-leads-club/agent-skills",
+    "commit": "6df68d52028b9261058231e0f4998048c0352f45",
+    "upstream_path": "packages/skills-catalog/skills/(development)/harness-eval/references/claims.schema.json",
+    "sha256": "d849e4cb57d9d6c3a840a16eb4e7340de0515dc8fee5d4b2b5a4c95909217259"
+  },
+  {
+    "path": "harness-eval/references/judge-prompts.md",
+    "repository": "tech-leads-club/agent-skills",
+    "commit": "6df68d52028b9261058231e0f4998048c0352f45",
+    "upstream_path": "packages/skills-catalog/skills/(development)/harness-eval/references/judge-prompts.md",
+    "sha256": "f9f0f53bf236d0c6c8d93586ff8ac6314efd15deebdf0185998c651cb4885263"
+  },
+  {
+    "path": "harness-eval/scripts/doc_scope.py",
+    "repository": "tech-leads-club/agent-skills",
+    "commit": "6df68d52028b9261058231e0f4998048c0352f45",
+    "upstream_path": "packages/skills-catalog/skills/(development)/harness-eval/scripts/doc_scope.py",
+    "sha256": "9caf0f7c5f1eeeaa9494d228f6a520c1fdd1b2c305d5b0335546852a0055a9c3"
+  },
+  {
+    "path": "harness-eval/scripts/inventory_extract.py",
+    "repository": "tech-leads-club/agent-skills",
+    "commit": "6df68d52028b9261058231e0f4998048c0352f45",
+    "upstream_path": "packages/skills-catalog/skills/(development)/harness-eval/scripts/inventory_extract.py",
+    "sha256": "6c51c12b99ba4ed1519f5ca6e71480a2dee7822c1385c6d7acac7f29c7c75bb4"
+  },
+  {
+    "path": "harness-eval/scripts/merge_agreement.py",
+    "repository": "tech-leads-club/agent-skills",
+    "commit": "6df68d52028b9261058231e0f4998048c0352f45",
+    "upstream_path": "packages/skills-catalog/skills/(development)/harness-eval/scripts/merge_agreement.py",
+    "sha256": "003cac237951f51af097766e68be6171abd79519fed9c7246c791c2c217864e5"
+  },
+  {
+    "path": "harness-eval/scripts/merge_usefulness.py",
+    "repository": "tech-leads-club/agent-skills",
+    "commit": "6df68d52028b9261058231e0f4998048c0352f45",
+    "upstream_path": "packages/skills-catalog/skills/(development)/harness-eval/scripts/merge_usefulness.py",
+    "sha256": "752759b9ca1ece00b3bc90b7b83436721f4d092011e68b52c4c0bb3b441bacac"
+  },
+  {
+    "path": "harness-eval/scripts/slim_fanin.py",
+    "repository": "tech-leads-club/agent-skills",
+    "commit": "6df68d52028b9261058231e0f4998048c0352f45",
+    "upstream_path": "packages/skills-catalog/skills/(development)/harness-eval/scripts/slim_fanin.py",
+    "sha256": "1acc0babdee248445ad7f4c2a5cfbbf570f6c42aad80eff55cfda5f98379ff9e"
+  },
+  {
+    "path": "harness-eval/scripts/surfaces_extract.py",
+    "repository": "tech-leads-club/agent-skills",
+    "commit": "6df68d52028b9261058231e0f4998048c0352f45",
+    "upstream_path": "packages/skills-catalog/skills/(development)/harness-eval/scripts/surfaces_extract.py",
+    "sha256": "81caab902b98a9da03f07acef173a7134a7438ba655253cdbbdea3725913195f"
+  },
+  {
+    "path": "harness-eval/scripts/track_a_correctness.py",
+    "repository": "tech-leads-club/agent-skills",
+    "commit": "6df68d52028b9261058231e0f4998048c0352f45",
+    "upstream_path": "packages/skills-catalog/skills/(development)/harness-eval/scripts/track_a_correctness.py",
+    "sha256": "81d98ff1fe50adc7745af5166e63195e17f3ef730150b8c0dd1203e23674ed1e"
+  },
+  {
+    "path": "harness-engineering/SKILL.md",
+    "repository": "paladini/harness-score",
+    "commit": "90f67d40d56cfe8bd11112e76f48880752f196d1",
+    "upstream_path": "plugins/claude-code/skills/harness-engineering/SKILL.md",
+    "sha256": "69ebf52dc1b98a623f6ec52149cf022273a1a8c2e28b4c3af6818e0976f45d50"
+  },
+  {
+    "path": "harness-eval/UPSTREAM-README.md",
+    "repository": "tech-leads-club/agent-skills",
+    "commit": "6df68d52028b9261058231e0f4998048c0352f45",
+    "upstream_path": "README.md",
+    "sha256": "bf073fed45aa2da5c08d623ffbf39dcad755488299cf237edbc30d89569ac4f6"
+  },
+  {
+    "path": "harness-eval/UPSTREAM-LICENSE",
+    "repository": "tech-leads-club/agent-skills",
+    "commit": "6df68d52028b9261058231e0f4998048c0352f45",
+    "upstream_path": "LICENSE",
+    "sha256": "39fd55ef48c40f1b02f6268f032d8ed167c8cdb92713876038ed9a7091f69a6e"
+  },
+  {
+    "path": "harness-engineering/UPSTREAM-README.md",
+    "repository": "paladini/harness-score",
+    "commit": "90f67d40d56cfe8bd11112e76f48880752f196d1",
+    "upstream_path": "README.md",
+    "sha256": "310d012b976cc47d1acc551b849b277afedb029fa9f3c54ed07a639cf42ce1c2"
+  },
+  {
+    "path": "harness-engineering/UPSTREAM-LICENSE",
+    "repository": "paladini/harness-score",
+    "commit": "90f67d40d56cfe8bd11112e76f48880752f196d1",
+    "upstream_path": "LICENSE",
+    "sha256": "be1d3eca5498400987f757984f1159378001f520ec4badf9324902d1d6e26aa1"
+  },
+  {
+    "path": "harness-score/LICENSE",
+    "repository": "paladini/harness-score",
+    "package": "harness-score@1.8.1",
+    "upstream_path": "LICENSE",
+    "sha256": "be1d3eca5498400987f757984f1159378001f520ec4badf9324902d1d6e26aa1",
+    "npm_integrity": "sha512-XeAa+AlOSxuLwfshRXTyaff/VNQnd6dSvdPnFwaCeBKXvIrayaKxANCsZbQu/TtSF8Wo9Zimimfx9y5X0Q0lCg=="
+  },
+  {
+    "path": "harness-score/dist/chunk-3K6E42PW.js",
+    "repository": "paladini/harness-score",
+    "package": "harness-score@1.8.1",
+    "upstream_path": "dist/chunk-3K6E42PW.js",
+    "sha256": "1c2ff5917de58ab0410c4deb0edc1ad0884e16dbb6d9b2bed0d1dcda53443bc9",
+    "npm_integrity": "sha512-XeAa+AlOSxuLwfshRXTyaff/VNQnd6dSvdPnFwaCeBKXvIrayaKxANCsZbQu/TtSF8Wo9Zimimfx9y5X0Q0lCg=="
+  },
+  {
+    "path": "harness-score/dist/chunk-XBA7NARO.js",
+    "repository": "paladini/harness-score",
+    "package": "harness-score@1.8.1",
+    "upstream_path": "dist/chunk-XBA7NARO.js",
+    "sha256": "9d4cfc09e65504b8403a70de501af2d18014fcf7a9af06782fa10753e1931a95",
+    "npm_integrity": "sha512-XeAa+AlOSxuLwfshRXTyaff/VNQnd6dSvdPnFwaCeBKXvIrayaKxANCsZbQu/TtSF8Wo9Zimimfx9y5X0Q0lCg=="
+  },
+  {
+    "path": "harness-score/dist/cli.js",
+    "repository": "paladini/harness-score",
+    "package": "harness-score@1.8.1",
+    "upstream_path": "dist/cli.js",
+    "sha256": "8f53580b7081f832ef9c2f2ecdaeaad7d8d357216064a79c5581777f7842cccc",
+    "npm_integrity": "sha512-XeAa+AlOSxuLwfshRXTyaff/VNQnd6dSvdPnFwaCeBKXvIrayaKxANCsZbQu/TtSF8Wo9Zimimfx9y5X0Q0lCg=="
+  },
+  {
+    "path": "harness-score/dist/index.js",
+    "repository": "paladini/harness-score",
+    "package": "harness-score@1.8.1",
+    "upstream_path": "dist/index.js",
+    "sha256": "93d8de17fbad16eac5897c4b7f241cbe7ac9e5ac79cdbac536db55561c1f1556",
+    "npm_integrity": "sha512-XeAa+AlOSxuLwfshRXTyaff/VNQnd6dSvdPnFwaCeBKXvIrayaKxANCsZbQu/TtSF8Wo9Zimimfx9y5X0Q0lCg=="
+  },
+  {
+    "path": "harness-score/dist/harness/registry.js",
+    "repository": "paladini/harness-score",
+    "package": "harness-score@1.8.1",
+    "upstream_path": "dist/harness/registry.js",
+    "sha256": "04a82f16cdbefb86add998236cc14a5daa1eb37107b8523a9a5f2e63e030697c",
+    "npm_integrity": "sha512-XeAa+AlOSxuLwfshRXTyaff/VNQnd6dSvdPnFwaCeBKXvIrayaKxANCsZbQu/TtSF8Wo9Zimimfx9y5X0Q0lCg=="
+  },
+  {
+    "path": "harness-score/package.json",
+    "repository": "paladini/harness-score",
+    "package": "harness-score@1.8.1",
+    "upstream_path": "package.json",
+    "sha256": "87244e492e296ce0a63fd1e6aa6e32383e42d335d73b20a45447fe7f412fb4b8",
+    "npm_integrity": "sha512-XeAa+AlOSxuLwfshRXTyaff/VNQnd6dSvdPnFwaCeBKXvIrayaKxANCsZbQu/TtSF8Wo9Zimimfx9y5X0Q0lCg=="
+  },
+  {
+    "path": "harness-score/README.md",
+    "repository": "paladini/harness-score",
+    "package": "harness-score@1.8.1",
+    "upstream_path": "README.md",
+    "sha256": "74dac4a2930b9510ceb4176e427316759ccccddbedfff4745421ab7f60fec072",
+    "npm_integrity": "sha512-XeAa+AlOSxuLwfshRXTyaff/VNQnd6dSvdPnFwaCeBKXvIrayaKxANCsZbQu/TtSF8Wo9Zimimfx9y5X0Q0lCg=="
+  },
+  {
+    "path": "harness-score/dist/cli.d.ts",
+    "repository": "paladini/harness-score",
+    "package": "harness-score@1.8.1",
+    "upstream_path": "dist/cli.d.ts",
+    "sha256": "a59c47872b71f12589942892464e764c0db350c20b72228645615cc36e0a0725",
+    "npm_integrity": "sha512-XeAa+AlOSxuLwfshRXTyaff/VNQnd6dSvdPnFwaCeBKXvIrayaKxANCsZbQu/TtSF8Wo9Zimimfx9y5X0Q0lCg=="
+  },
+  {
+    "path": "harness-score/dist/index.d.ts",
+    "repository": "paladini/harness-score",
+    "package": "harness-score@1.8.1",
+    "upstream_path": "dist/index.d.ts",
+    "sha256": "4450206bc662bd4031d8d4f9a4e270f55a42ec62a89c06a0860c93859a70cc35",
+    "npm_integrity": "sha512-XeAa+AlOSxuLwfshRXTyaff/VNQnd6dSvdPnFwaCeBKXvIrayaKxANCsZbQu/TtSF8Wo9Zimimfx9y5X0Q0lCg=="
+  },
+  {
+    "path": "harness-score/dist/registry-Dq4QBLCp.d.ts",
+    "repository": "paladini/harness-score",
+    "package": "harness-score@1.8.1",
+    "upstream_path": "dist/registry-Dq4QBLCp.d.ts",
+    "sha256": "efb7ab6e1304917ee84949205d25225dda5770acba05f11dac92dbbb1b0648b7",
+    "npm_integrity": "sha512-XeAa+AlOSxuLwfshRXTyaff/VNQnd6dSvdPnFwaCeBKXvIrayaKxANCsZbQu/TtSF8Wo9Zimimfx9y5X0Q0lCg=="
+  },
+  {
+    "path": "harness-score/dist/harness/registry.d.ts",
+    "repository": "paladini/harness-score",
+    "package": "harness-score@1.8.1",
+    "upstream_path": "dist/harness/registry.d.ts",
+    "sha256": "8e1d7bf29d58750d57a25e7d8f9d25ba58802cea218ab4e6d593ff48242c6d12",
+    "npm_integrity": "sha512-XeAa+AlOSxuLwfshRXTyaff/VNQnd6dSvdPnFwaCeBKXvIrayaKxANCsZbQu/TtSF8Wo9Zimimfx9y5X0Q0lCg=="
+  }
+]
