@@ -1,0 +1,15 @@
+input/*
+!input/.gitkeep
+runs/*
+!runs/.gitkeep
+work/
+.harness-eval/
+__pycache__/
+**/__pycache__/
+*.pyc
+*.log
+.env
+.env.*
+!.env.example
+*.pem
+*.key
