@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "project": "Inteligência SOT",
+  "stage": "traducao",
+  "roles": ["coordenador", "tradutor", "auditor"],
+  "max_agents": 3,
+  "max_correction_rounds": 2,
+  "critical_open_max": 0,
+  "major_open_max": 0,
+  "required_review_checks": ["coverage", "meaning", "terminology", "numbers", "conditions", "tables", "formulas", "layout", "source_locators"],
+  "runtime": {
+    "engine": "docker",
+    "image": "python@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f",
+    "network": "none",
+    "readonly_root": true,
+    "memory": "1g",
+    "pids_limit": 128,
+    "cpus": "2"
+  }
+}
