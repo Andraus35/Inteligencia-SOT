@@ -1,0 +1,43 @@
+{
+  "run_id": "bootstrap",
+  "scope": [
+    "AGENTS.md",
+    ".agents/skills/translation-quality/SKILL.md"
+  ],
+  "optional_masters": false,
+  "tracks": [
+    "A",
+    "B",
+    "C"
+  ],
+  "report_only": true,
+  "source_sha256": {
+    "AGENTS.md": "49aae722c5ab0be9013aad1e59796f26271b029bb156bdd390d1ea016b978d01",
+    ".agents/skills/translation-quality/SKILL.md": "399781c0b6be8e1c2052713efb192bd776183b35657ef198d3db39ac3b045430",
+    "harness/harness.py": "de7ba75db1f907046e331b83b369443a96af8131b9109083da3f09b7bfeda00c",
+    "harness/policy.json": "3a8a74bf1403a848ac9b9252906d25807db8117aa1a56e4731c89eaecdb99746",
+    "harness/tests/test_harness.py": "303451edcfc6967333cb338647c59a65d04338c834063afb0c2a72e4239651ed"
+  },
+  "judge_model": "codex-gpt-6-inherited",
+  "exact_api_model_id_exposed": false,
+  "A": {
+    "broken": 0
+  },
+  "B": {
+    "real_claims": 23,
+    "ship": 0,
+    "review": 23,
+    "hold": 0,
+    "trap_pass": true
+  },
+  "C": {
+    "real_surfaces": 2,
+    "slim": 0,
+    "keep_core": 2,
+    "mixed": 0,
+    "hold": 0,
+    "trap_pass": true,
+    "fanin_blocked": 0
+  },
+  "calibration_limit": "Upstream gates calibrate Judge2; Judge1 had UNCLEAR on two C plants. Real-surface agreement is 2/2; no trim applied."
+}
