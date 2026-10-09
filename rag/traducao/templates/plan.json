@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "source_language": "",
+  "target_language": "",
+  "glossary_approved_by": "",
+  "glossary": [],
+  "source_blocks": [],
+  "pilot_block_ids": [],
+  "tools": [],
+  "models": [],
+  "prompt_sha256": "",
+  "privacy": "local",
+  "notes": "Template incompleto: deve ser preenchido com o PDF real; não habilita tradução. Glossário: source, target, mandatory. Blocos: id, page, kind, text; formula/code: preserved_content; table: cells."
+}
